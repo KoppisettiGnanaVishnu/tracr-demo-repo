@@ -1,2 +1,1 @@
-# tracr-demo-repo
-function login(password, token) { return authenticate(token); }
+Testing Tracr GitHub App webhook.
