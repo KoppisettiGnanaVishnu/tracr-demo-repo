@@ -12,3 +12,6 @@ authetication of this application
 Testing Phase 2
 
 Testing Render deployment
+
+
+Testing render deployment application logs and payment autherisation
