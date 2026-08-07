@@ -32,3 +32,5 @@ const jwt = require("jsonwebtoken");
 function auth(token) {
     return jwt.decode(token);
 }
+
+console.log("TRACR TEST");
