@@ -1,23 +1,35 @@
-Testing Tracr GitHub App webhook.
+# Tracr Demo Repository
 
+This repository is used to demonstrate Tracr, a GitHub App that reviews Pull Requests for common security issues.
 
-Testing new Tracr formatter.
+## What this demonstrates
 
-vishnu xxx payment
+A developer creates a Pull Request containing code with security issues.
 
+Tracr automatically:
 
-authetication of this application
+- Scans the changed files
+- Detects common security problems
+- Points to the exact line where an issue was found
+- Assigns severity and confidence
+- Provides CWE references
+- Explains why the issue is risky
+- Suggests how to fix it
+- Calculates an overall Trust Score
 
+## Demo Flow
 
-Testing Phase 2
-
-Testing Render deployment
-
-
-Testing render deployment application logs and payment autherisation
-
-
-New Reviewer Part Added
-
-
-echo "Testing reviewer module" >> README.md
+```text
+Developer creates Pull Request
+            ↓
+       Tracr reviews it
+            ↓
+     Security findings
+            ↓
+     Inline PR comments
+            ↓
+       Trust Score
+            ↓
+       Developer fixes
+            ↓
+      Tracr reviews again
