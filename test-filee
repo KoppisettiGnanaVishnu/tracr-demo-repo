@@ -1,0 +1,57 @@
+// vulnerable-sample.js
+// Intentionally insecure code — used only to test Tracr's scanner.
+
+const express = require("express");
+const jwt = require("jsonwebtoken");
+const cors = require("cors");
+
+const app = express();
+
+// CORS allows any origin
+app.use(cors({ origin: "*" }));
+
+// Hardcoded password
+const password = "admin123";
+
+// Hardcoded API key
+const apiKey = "sk-abc123xyz789DEF";
+
+// Non-HTTPS endpoint
+const API = "http://api.example.com/v1";
+
+// SQL injection via string concatenation
+function getUser(userId) {
+  const q = "SELECT * FROM users WHERE id = " + userId;
+  return db.query(q);
+}
+
+// SQL injection via template literal
+function getOrders(req) {
+  const q = `SELECT * FROM orders WHERE user = ${req.params.id}`;
+  return db.query(q);
+}
+
+// JWT decoded without verifying the signature
+function verifyToken(token) {
+  return jwt.decode(token);
+}
+
+// Weak MD5 hashing
+function hashPassword(pw) {
+  return md5(pw);
+}
+
+// eval() on user input
+function runUserCode(userInput) {
+  eval(userInput);
+}
+
+// Command injection
+function runCommand(userInput) {
+  return exec(userInput);
+}
+
+// Destructive SQL
+const migration = "DROP TABLE users;";
+
+module.exports = { getUser, getOrders, verifyToken, hashPassword, runUserCode, runCommand, migration };
