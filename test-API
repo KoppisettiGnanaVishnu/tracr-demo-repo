@@ -1,0 +1,14 @@
+// vulnerable-sample.js
+// Intentionally insecure code — used only to test Tracr's scanner.
+
+const express = require("express");
+const jwt = require("jsonwebtoken");
+const cors = require("cors");
+
+const app = express();
+
+// CORS allows any origin
+app.use(cors({ origin: "*" }));
+
+// Hardcoded password
+const password = "admin123";
